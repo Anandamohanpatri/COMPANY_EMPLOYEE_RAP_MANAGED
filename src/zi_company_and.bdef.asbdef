@@ -1,0 +1,55 @@
+managed ;//implementation in class zbp_i_company_and unique;
+//strict ( 2 );
+
+define behavior for ZI_COMPANY_AND //alias <alias_name>
+persistent table zan_company
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create ;
+  update;
+  delete;
+  field ( readonly : update ) Companyid;
+
+  association _EMPLOYEE { create; }
+
+  mapping for zan_company {
+
+    Companyid = company_id;
+    Empid = emp_id;
+    Companyname = company_name;
+    materialno = material_no;
+    headquarter = headquarter;
+    pincode = pin_code;
+}
+
+}
+define behavior for ZI_EMPLOYEE_AND //alias <alias_name>
+persistent table zan_employee
+lock dependent by _COMPANY
+//authorization dependent by _COMPANY
+//etag master <field_name>
+{
+
+  update;
+  delete;
+  field ( readonly : update) EmpId;
+  field ( readonly : update ) CompanyId ;
+  association _COMPANY;
+
+ mapping for zan_employee {
+
+     EmpId = emp_id;
+     CompanyId = company_id ;
+     EmpName = emp_name;
+     Role = role;
+     CityName = city_name  ;
+     JoiningDate = joining_date;
+     MobileNo = mobile_no;
+     EmailAddress = email_address;
+     Salary = salary;
+     Currencycode = Currencycode;
+
+   }
+}

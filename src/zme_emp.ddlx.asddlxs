@@ -1,0 +1,72 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'employee',
+    typeNamePlural: 'employees',
+    title: { type: #STANDARD, value: 'EmpName' },
+    description: { type: #STANDARD, value: 'JoiningDate' }
+}
+
+
+annotate view ZC_EMPLOYEE
+    with
+{
+    
+    @UI.facet: [
+        { id: 'EmployeeInfo',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          label: 'Employee Information',
+          position: 10 
+        },
+
+        { id: 'CompanyInfo',
+          purpose: #STANDARD,
+          type:#IDENTIFICATION_REFERENCE,
+          label: 'Company Details',
+          position: 20,
+          targetElement: '_COMPANY' }
+    ]
+
+ 
+   @UI:   {   lineItem:       [{ position: 10, label: 'Employee ID' }],
+            identification: [{ position: 10, label: 'Employee ID'  }],
+            selectionField: [{ position: 10 }] }
+  EmpId;
+
+  @UI:    {   lineItem:       [{ position: 20, label: 'Company ID'  }] ,
+            identification: [{ position: 20, label: 'Company ID' }],
+            selectionField: [{ position: 20 }]  }
+  CompanyId;
+
+  @UI:   { lineItem:       [{ position: 30, label: 'Employee Name' }],
+            identification: [{ position: 30, label: 'Employee Name' }]  }
+    EmpName;
+
+  @UI:  {   lineItem:       [{ position: 40, label: 'Role' }],
+            identification: [{ position: 40, label: 'Role' }] }
+ Role;
+
+  @UI:   {  lineItem:       [{ position: 50, label: 'City Name'  }],
+            identification: [{ position: 50, label: 'City Name' }]  }
+ CityName;
+
+  @UI:  {   lineItem:   [{ position: 60, label: 'Joining Date' }],
+            identification: [{ position: 60, label: 'Joining Date' }]  }
+  JoiningDate;
+
+  @UI:  {  lineItem:  [{ position: 70, label: 'Mobile Number' }],
+           identification: [{ position: 70, label: 'Mobile Number'}]  }
+  MobileNo;
+
+  @UI:      {  lineItem:   [{ position: 80, label: 'Email Address' }],
+             identification: [{ position: 80, label: 'Email Address' }]  }
+  EmailAddress;
+
+  @UI: { lineItem:       [{ position: 90 }],
+        identification: [{ position: 90, label: 'Salary' }] }
+  Salary;
+
+  @UI:  {  lineItem:       [{ position: 100 }],
+         identification: [{ position: 100, label: 'Currency Code' }] }
+  Currencycode;
+}

@@ -1,0 +1,61 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Company',
+    typeNamePlural: 'Companies',
+    title: { type: #STANDARD, value: 'Companyname' },
+    description: { type: #STANDARD, value: 'headquarter' }
+}
+
+annotate view ZC_COMPANY
+    with 
+{  
+
+  @UI.facet: [
+    {
+      id: 'CompanyInfo',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Company Information',
+      position: 10 
+       },
+    {
+      id: 'EmployeeInfo',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Employee Details',
+      position: 20,
+      targetElement: '_EMPLOYEE'
+    }
+  ]
+
+  @UI:  { lineItem: [{ position: 10, label: 'Company ID' }],
+          identification: [{ position: 10, label: 'Company ID' }],
+          selectionField: [{ position: 10 }] }
+  Companyid;
+
+
+  @UI:   {  lineItem: [{ position: 20, label: 'Employee ID' }],
+            identification: [{ position: 20, label: 'Employee ID' }],
+            selectionField: [{ position: 20 }] }
+  Empid;
+
+ 
+  @UI:   { lineItem: [{ position: 30, label: 'Company Name' }],
+            identification: [{ position: 30, label: 'Company Name'}] }
+ Companyname;
+
+  
+  @UI:      { lineItem: [{ position: 40, label: 'Material No.' }],
+     identification: [{ position: 40, label: 'Material No.' }]}
+  materialno;
+
+ 
+  @UI:  { lineItem: [{ position: 50, label: 'Headquarter' }],
+        identification: [{ position: 50, label: 'Headquarter' }] }
+  headquarter;
+
+  
+  @UI:  { lineItem: [{ position: 60, label: 'Pincode' }],
+        identification: [{ position: 60, label: 'Pincode' }] }
+  pincode;
+}
