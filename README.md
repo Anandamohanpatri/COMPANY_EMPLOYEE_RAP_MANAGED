@@ -61,7 +61,6 @@ The solution provides a Fiori UI for interacting with company and employee recor
 - Object page with tabbed navigation (using `@UI.facet`)
 - **Master-Detail Navigation**: Browse companies and view/manage associated employees
 - **Rich Field Annotations**: For line items, field groups, and details
-- **Draft & Validation Support**: Native RAP features for safe data handling
 
 
 
